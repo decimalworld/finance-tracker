@@ -1,0 +1,11 @@
+services:
+  web:
+    tty: true
+    stdin_open: true
+    build: .
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./:/code/
+    command: bash -c "rm -rf /code/tmp/pids/server.pid &&
+                      rails s -p 8080 -b '0.0.0.0'"
